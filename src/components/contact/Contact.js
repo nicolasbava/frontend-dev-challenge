@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import * as v from '../../assets/js/variables'
 
+const sendAlert = () => {
+    alert('Mensaje enviado.')
+}
+
 const Contact = () => {
     return (
         <ContactContainer>
@@ -21,12 +25,12 @@ const Contact = () => {
                 <textarea className='contact__input' type='text' name='message' placeholder='Inserte su mensaje...'></textarea>
 
                 {/* Newletter checkbox */}
-                <div  className='contact__input'>
+                <div  className='contact__input--checkbox'>
                     <input type='checkbox' name='newsletter' ></input>
                     <span>Acepto recibir Newsletter por correo</span>
                 </div>
 
-                <button>Enviar mensaje</button>
+                <button onClick={( ) => sendAlert()}>Enviar mensaje</button>
             </form>
         </ContactContainer>
     );
@@ -56,9 +60,20 @@ const ContactContainer = styled.section`
             background: transparent;
             border: none;
             border-bottom: solid white 1px;
+            color: white;
         }
 
-        &__input:placeholder {
+        &__input--checkbox {
+            border-bottom: none;
+            margin: 50px 0;
+        }
+
+        &__input::placeholder {
+            color: white;
+        }
+
+        &__input:focus {
+            outline: none; 
             color: white;
         }
     }

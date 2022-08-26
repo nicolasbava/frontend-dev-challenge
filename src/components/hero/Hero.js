@@ -32,7 +32,7 @@ const Hero = () => {
             <HeroContainer>
                 <img className='hero-img'  src={images[currentIndex]} ></img> 
                 <div className='hero-title'>
-                    <h1>Su viaje de <span className='hero-title__span--pink'>salud emocional</span>comienza aqui.</h1>
+                    <h1>Su viaje de <span className='hero-title__span--pink'> salud emocional </span>comienza aqui.</h1>
                     <h2>Conoce nuestros profesionales con licencia.</h2>
                     <h3>Todos se someten a un proceso seguro de verificación y acreditación, además de adherirse a estrictos códigos de ética y confidencialidad.</h3>
                     <HeroForm>
