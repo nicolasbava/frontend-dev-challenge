@@ -2,6 +2,9 @@
 
 This project is a landing page, styled as a mental health landing page oriented to feminist public.
 
+You can see the Figma prototype in this Link
+https://www.figma.com/file/Gzm0AecmGDIwDMJ1iC4Dgx/Figma-Test-(Copy)?node-id=5559%3A696
+
 
 ## LIBRARIES USED
 
