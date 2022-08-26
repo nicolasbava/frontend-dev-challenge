@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import * as v from '../../assets/js/variables'
+import Button1 from '../buttons/button1';
+
+
+import Input, { Textarea } from '../input/input';
 
 const sendAlert = () => {
     alert('Mensaje enviado.')
@@ -14,15 +18,18 @@ const Contact = () => {
 
                 {/* Name input */}
                 <label className='label contact__label' for='name'>Nombre:</label>
-                <input className='contact__input' type='text' name='name' placeholder='Inserte su nombre...'></input>
+                <Input placeholder='Nombre completo' />
+                {/* <input className='contact__input' type='text' name='name' placeholder='Inserte su nombre...'></input> */}
 
                 {/* Email input */}
                 <label className='label contact__label' for='email'>Email:</label>
-                <input className='contact__input' type='email' name='email' placeholder='Inserte su email...'></input>
+                {/* <input className='contact__input' type='email' name='email' placeholder='Inserte su email...'></input> */}
+                <Input placeholder='Email' />
 
                 {/* Message input textarea */}
                 <label className='label contact__label' for='message'>Mensaje:</label>
-                <textarea className='contact__input' type='text' name='message' placeholder='Inserte su mensaje...'></textarea>
+                {/* <textarea className='contact__input' type='text' name='message' placeholder='Inserte su mensaje...'></textarea> */}
+                <Textarea placeholder='Mensaje' height='100px' />
 
                 {/* Newletter checkbox */}
                 <div  className='contact__input--checkbox'>
@@ -30,15 +37,21 @@ const Contact = () => {
                     <span>Acepto recibir Newsletter por correo</span>
                 </div>
 
-                <button onClick={( ) => sendAlert()}>Enviar mensaje</button>
+                <Button1 onClick={( ) => sendAlert()} text='Enviar mensaje'></Button1>
             </form>
         </ContactContainer>
     );
 }
 
 const ContactContainer = styled.section`
+
     padding: 100px 50px;
+    display: flex;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
 
     .contact {
         &__title {
@@ -52,7 +65,8 @@ const ContactContainer = styled.section`
 
         &__label {
             text-align: left;
-            margin-top: 25px;
+            margin: 25px 0 10px 10px;
+            font-size: 20px;
         }
 
         &__input {
@@ -75,6 +89,22 @@ const ContactContainer = styled.section`
         &__input:focus {
             outline: none; 
             color: white;
+        }
+    }
+
+    @media (min-width: 750px) {
+
+        .contact {
+
+            &__form {
+
+                width: 40%;
+
+                button {
+                    width: 50%;
+                    margin: 0 auto;
+                }
+            }
         }
     }
 

@@ -34,39 +34,26 @@ let testimonials = [
 
 const Testimonials = () => {
 
+    useEffect(() => {
+
+        // to develop slider
+
+        
+        return () => {
+            
+        };
+    }, []);
+
     
     let col = useRef()
     let btn0 = useRef()
     let col1 = useRef()
     let col2 = useRef()
 
-    const button0 = () => {
+   
 
-        
-            
-            // col.style.backgroundColor = 'blue';
-            alert('alerta')
-        
-    };
-    
-    
-    const button1 = () => {
-        // btn0.style.transform = 'translateX(-400px)'
-    };
-    
-    
-    const button2 = () => {
-        // btn0.style.transform = 'translateX(-800px)'
-    }
     return (
         <TestimonialsContainer>
-            {/* <img className='testimonial__icon' src={icon}></img>
-            <img className='testimonial__user' src={user}></img>
-            <p className='testimonial__p'>Me gustaría agradecer al sitio, me ayudó de una manera inimaginable, el psicólogo fue sumamente servicial y acogedor conmigo y me siento mejor conmigo mismo.</p>
-            <h4 className='testimonial__name'> ~ Maria Montessori ~</h4>
-            <img className='testimonial__markers' src={markers} ></img>
-            <img className='testimonial__frame' src={frame} ></img> */}
-
             <img className='testimonial__icon' src={icon}></img>
 
             <div className='slide-container'>
@@ -84,11 +71,11 @@ const Testimonials = () => {
            
             </div>
             <div className='testimonial__indicator'>
-                <span onClick={() => button0()} ref={btn0} className='testimonial__indicator--btn'></span>
-                <span onClick={() => button1()}  className='testimonial__indicator--btn'></span>
-                <span onClick={() => button2()}  className='testimonial__indicator--btn'></span>
+                <span ref={btn0} className='testimonial__indicator--btn'></span>
+                <span  className='testimonial__indicator--btn'></span>
+                <span  className='testimonial__indicator--btn'></span>
             </div>
-            {/* <img className='testimonial__markers' src={markers} ></img> */}
+
             <img className='testimonial__frame' src={frame} ></img>
 
         </TestimonialsContainer>
@@ -147,38 +134,63 @@ const TestimonialsContainer = styled.section`
                 cursor: pointer
             }
         }
+
+        &__icon {
+            max-width: 50px;
+        }
+
+        &__user {
+            max-width: 200px;
+            margin: 60px auto 40px;
+            cursor: pointer;
+        }
+
+        &__p {
+            font-family: ${v.TESTIMONIAL__P};
+            color: ${v.GREY_400};
+        }
+
+        &__name {
+            color: ${v.GREY_700};
+            text-align: right;
+        }
+
+        &__markers {
+            max-width: 200px;
+            margin: 10px auto;
+        }
+
+        &__frame {
+            margin-top: 50px;
+            max-width: 200px;
+            position: absolute;
+            bottom: -50px;
+            left: 0;     
+            cursor:pointer;
+            transition: all 300ms ease;
+
+            &:hover {
+                transform: scale(1.0125);
+            }
+        }
     }
 
-    .testimonial__icon {
-        max-width: 50px;
-    }
 
-    .testimonial__user {
-        max-width: 200px;
-        margin: 60px auto 40px;
-    }
 
-    .testimonial__p {
-        font-family: ${v.TESTIMONIAL__P};
-        color: ${v.GREY_400};
-    }
+    @media (min-width: 750px) {
 
-    .testimonial__name {
-        color: ${v.GREY_700};
-        text-align: right;
-    }
+        .testimonial {
 
-    .testimonial__markers {
-        max-width: 200px;
-        margin: 10px auto;
-    }
-   
-    .testimonial__frame {
-        margin-top: 50px;
-        max-width: 200px;
-        position: absolute;
-        bottom: -50px;
-        left: 0;     
+            &__frame {
+                left: 10%;
+            }
+
+            &__icon {
+                margin-left: 24%;
+            }
+        }
+
+
     }
 `;
 
