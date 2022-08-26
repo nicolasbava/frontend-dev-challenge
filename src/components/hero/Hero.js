@@ -52,7 +52,7 @@ const HeroContainer = styled.section`
     }
 
     .hero-title__span--pink {
-        color:${v.pink}
+        color:${v.PINK}
     }
 
 `;

@@ -17,13 +17,14 @@ const NavBar = () => {
 }
 
 const NavBarContainer = styled.nav`
-    background: ${v.white};
+    background: ${v.WHITE};
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 8px;
     position: fixed;
     width: 100%;
+    z-index: 99;
 `
 
 
