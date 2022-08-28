@@ -12,20 +12,23 @@ import iconHamb from './assets/img/nav-bar/nav-hamb.svg'
 
 
 import { useSelector } from 'react-redux'
+import AlertModal from './components/modals/alert/AlertModal';
+import ModalWsp from './components/modals/whatsapp/Whatsapp';
 
 function App() {
 
 
   const isModalOpen = useSelector( ( state ) =>  state.state.isModalOpen)
+  const isAlertOpen = useSelector( (state) =>  state.state.isAlertOpen)
 
-  console.log('STATE', isModalOpen)
 
   return (
     <div className="App">
       
       {isModalOpen && <ModalMenuMobile />}
+      {isAlertOpen && <AlertModal />}
 
-
+      <ModalWsp />
       <NavBar />
       <Hero />
       <Acordion />

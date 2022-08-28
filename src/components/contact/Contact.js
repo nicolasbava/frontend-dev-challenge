@@ -14,7 +14,7 @@ const Contact = () => {
     return (
         <ContactContainer>
             <h2 className='contact__title'>Contacto</h2>
-            <form className='contact__form'>
+            <article className='contact__form'>
 
                 {/* Name input */}
                 <label className='label contact__label' for='name'>Nombre:</label>
@@ -38,10 +38,10 @@ const Contact = () => {
                 </div>
 
                 <Button1 onClick={( ) => sendAlert()} text='Enviar mensaje'></Button1>
-            </form>
+            </article>
         </ContactContainer>
     );
-}
+}   
 
 const ContactContainer = styled.section`
 

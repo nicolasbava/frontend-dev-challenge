@@ -58,7 +58,7 @@ const NavBarContainer = styled.nav`
     position: fixed;
     top: 0;
     width: 100vw;
-    z-index: 90;
+    z-index: 103;
 
     img {
         cursor:pointer;

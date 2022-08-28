@@ -13,15 +13,14 @@ import Button1 from '../buttons/button1';
 const images = [img1, img2, img3];                                  // images array to put as hero image 
 
 const Hero = () => {
-    // STATE - CHANGE BACKGROUND AUTOMATICALLY
+                                                                    // STATE - CHANGE BACKGROUND AUTOMATICALLY
     const [currentIndex, setCurrentIndex] = useState(0);            // state to look for an image in images array
 
-    // ALERT WHEN PRESSING BUTTON
     const alert = () => {
-        alert('Gracias por suscribirse...')
+        alert('Gracias por suscribirse...')     // ALERT WHEN PRESSING BUTTON 
     }
 
-    // CHANGE BACKGROUND FUNCTION BY AN SET INTERVAL
+                                                                // CHANGE BACKGROUND FUNCTION BY AN SET INTERVAL
     useEffect(() => {
         const intervalId = setInterval(() => {                      // function to change hero image automatically
             if(currentIndex === images.length - 1) {                // counter = 0 if the number reach the end of the array
@@ -52,8 +51,8 @@ const Hero = () => {
                     <h2>Conoce nuestros profesionales con licencia.</h2>
                     <h3>Todos se someten a un proceso seguro de verificación y acreditación, además de adherirse a estrictos códigos de ética y confidencialidad.</h3>
                     <HeroForm>
-                        <input className='hero-input' type='email' name='heroEmail' placeholder='Inserte su email' ></input>
-                        <Button1 onClick={()=> alert()} text='Suscribirme' />
+                        <input className='hero-input' type='email' name='heroEmail' placeholder='Suscribirse al newsletter' ></input>
+                        <Button1 text='Suscribirme' />
                     </HeroForm>
                 </div>
             </HeroContainer>
@@ -174,7 +173,7 @@ const HeroContainer = styled.section`
 `;
 
 
-const HeroForm = styled.form`
+const HeroForm = styled.section`
     padding: 50px 0 0;
     display:flex;
 

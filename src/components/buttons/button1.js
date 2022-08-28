@@ -2,9 +2,22 @@ import React from 'react';
 import * as v from '../../assets/js/variables'
 import styled from 'styled-components';
 
-const sendAlert = () => alert('Gracias por suscribirse')
+import { useDispatch } from 'react-redux'
+import { setAlertOpen } from '../../toolkit/reducer';
+
+
+
 
 const Button1 = ({ text }) => {
+
+    const dispatch = useDispatch()
+
+    const sendAlert = () => {
+        dispatch(setAlertOpen());
+        // alert('Gracias por suscribirse');
+    }
+
+    
     return (
         <Button onClick={()=> sendAlert()}>
             {text}

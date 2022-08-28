@@ -4,36 +4,22 @@ import vector from '../../assets/img/accordion/vector-down.png'
 import verticalLine from '../../assets/img/accordion/vertical-line-pink.png'
 import * as v from '../../assets/js/variables'
 
-const data = [
-    {
-        question: '¿Cuáles son los pasos para tomar una decisión?',
-        answer: 'Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.'
-    },
-    {
-        question: '¿Cuáles son los pasos para tomar una decisión?',
-        answer: 'Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.'
-    },
-    {
-        question: '¿Cuáles son los pasos para tomar una decisión?',
-        answer: 'Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.'
-    },
-]
-
+// import Accordion data from json
+import dataAccordion from '../../models/modelAcordion.json'
 
 
 const AccordionComponent = () => {
-    const [selected, setSelected] = useState(null)
+                                                        
+    const [selected, setSelected] = useState(null)          // state to open accordion
 
-    let openAccordion 
+    let openAccordion                                       // declare a variable to open accordion
 
     useEffect(() => {
-
-        
-        openAccordion = (i) => {
+ 
+        openAccordion = (i) => {                            // open accordion function
             if(selected === i){
                 return setSelected(null)
             } 
-
             setSelected(i)
         }
 
@@ -47,8 +33,7 @@ const AccordionComponent = () => {
             <div className='wrapper'>
                 <div className='accordion'>
                     
-                    {data.map( (item, i) => {
-
+                    {dataAccordion.map( (item, i) => {          // extract data from json to accordion
                         return (
                             <div className='item' key={i}>
                                 <div className='title' onClick={() => openAccordion(i)}>
@@ -65,15 +50,8 @@ const AccordionComponent = () => {
                                 </div>
                             </div>
                         )
-
-                        
-
                     })}
-
-                    
-
                 </div>
-
             </div>
         </AccordionComponentContainer>
     );
@@ -128,15 +106,11 @@ const AccordionComponentContainer = styled.section`
         max-height: 999px;
         height: auto;
         transition: 4s;
-
     }
 
     .title__h2.show {
-
         transition: all 300ms ease;
         text-shadow: -1.5px 1px ${v.PINK};
-
-
     }
 
 

@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import arrow from '../../../assets/img/nav-bar/arrow-vector.png'
 import * as v from '../../../assets/js/variables'
 import Button1 from '../../buttons/button1';
 
-
+import { useSelector } from 'react-redux/es/exports';
 
 const ModalMenuMobile = () => {
+    
+    // const isModalOpen = useSelector( state => state.state.isModalOpen)
+
+
+    // const leftValue = () => {
+
+    //     if(isModalOpen) {
+    //         return '50px'
+    //     } else {
+    //         return '0px'
+    //     }style={{left: `${leftValue()}`}}
+
+    // }
+    
+    
+
     return (
-        <MenuMobileContainer>
+        <MenuMobileContainer >
             <Modal>
                 <div className='menu__search'>
                     <input className='menu__search--input' type='text' placeholder='Buscar...'></input>
@@ -79,6 +95,7 @@ const Modal = styled.article`
     padding: 50px;
     max-width: 300px;
     border-radius: 0 15px 15px 0;
+    transition: all 500ms ease;
 
     .menu {
 
@@ -134,7 +151,7 @@ const MenuMobileContainer = styled.section`
     position:fixed;
     top: 57px;
     left: 0;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.7);
     right: 0;
     bottom: 0;
     transition: all 500ms ease;
