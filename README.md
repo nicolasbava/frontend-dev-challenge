@@ -1,6 +1,6 @@
 # LANDING PAGE -
 
-This project is a landing page, styled as a mental health landing page oriented to feminist public.
+This project is a landing page, styled as a mental health landing page oriented to family or mothers.
 
 
 ## FIGMA PROTOTYPE
