@@ -5,7 +5,6 @@ import styled from 'styled-components';
 const Input = ({ placeholder }) => {
     return (
         <InputStyled className='hero-input' type='email' name='heroEmail' placeholder={placeholder} ></InputStyled>
-
     );
 }
 

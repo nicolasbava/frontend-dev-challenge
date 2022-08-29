@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import * as v from '../../assets/js/variables'
-import shadow from '../../assets/img/hero/global-shadow--white.png'
 
+// import shadows images - to implement
+import shadow1 from '../../assets/img/shadows/shadow--up--right.png'
+import shadow2 from '../../assets/img/shadows/shadow--right.png'
+import shadow3 from '../../assets/img/shadows/shadow--up--right.png'
 
+// import background images
 import img1 from '../../assets/img/hero/hero-img1.png'
 import img2 from '../../assets/img/hero/hero-img2.png'
 import img3 from '../../assets/img/hero/hero-img3.png'
@@ -15,13 +19,9 @@ const images = [img1, img2, img3];                                  // images ar
 const Hero = () => {
                                                                     // STATE - CHANGE BACKGROUND AUTOMATICALLY
     const [currentIndex, setCurrentIndex] = useState(0);            // state to look for an image in images array
-
-    const alert = () => {
-        alert('Gracias por suscribirse...')     // ALERT WHEN PRESSING BUTTON 
-    }
-
-                                                                // CHANGE BACKGROUND FUNCTION BY AN SET INTERVAL
-    useEffect(() => {
+                                                               
+    useEffect(() => {                 
+                                      // CHANGE BACKGROUND FUNCTION BY AN SET INTERVAL
         const intervalId = setInterval(() => {                      // function to change hero image automatically
             if(currentIndex === images.length - 1) {                // counter = 0 if the number reach the end of the array
                 setCurrentIndex(0);                                 
@@ -30,6 +30,7 @@ const Hero = () => {
                 setCurrentIndex(currentIndex + 1);                  // adds 1 to counter if has not reached the end of the array
             }
         }, 5000)
+
         return () => clearInterval(intervalId);
     }, [currentIndex]);
 
@@ -38,9 +39,9 @@ const Hero = () => {
         return (
             <HeroContainer>
                 {/* WHITE SHADOWS */}
-                <img className='hero__shadow--1' src={shadow} />
-                <img className='hero__shadow--2' src={shadow} />
-                <img className='hero__shadow--3' src={shadow} />
+                {/* <img className='hero__shadow--1' src={shadow1} /> */}
+                {/* <img className='hero__shadow--2' src={shadow2} />  */}
+                {/* <img className='hero__shadow--3' src={shadow} /> */}
 
                 {/* IMAGES CIRCULAR */}
                 <img className='hero__img'  src={images[currentIndex]} ></img> 
@@ -60,17 +61,21 @@ const Hero = () => {
 }
 
 const HeroContainer = styled.section`
-    padding: 0 50px;
+    padding: 0 20px;
     padding-top: 23vh;
     display: flex;
     text-align: left;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    
 
+
+    
     .hero {
         &__title {
-            padding: 75px 50px;
+            padding: 75px 0px;
+            width: 90%;
 
             &--pink {
                 color:${v.PINK}
@@ -115,14 +120,17 @@ const HeroContainer = styled.section`
         }
     }
 
+    @media (min-width: 400px){
+        padding: 0 50px;
+        padding-top: 23%;
+    }
+
     @media (min-width: 750px) {
         flex-direction: row-reverse;
-        justify-content: flex-end;
-        padding-top: 11vh;
-        padding-left: 8%;
+        justify-content: space-between;
+        padding: 9vh 13% 0;
 
         .hero {
-            
             
             &__title {
                 width: 45%;
@@ -132,7 +140,6 @@ const HeroContainer = styled.section`
                 margin-left: 5%;
             }
             
-
             &__shadow {
                 &--1 {
                     position: absolute;
@@ -157,26 +164,19 @@ const HeroContainer = styled.section`
                     opacity: 0.2;
                     z-index: 0;
                 }
+            }
         }
-        
-        
-        
-        }
-
-        
-
-        
     }
-
-
-
 `;
 
-
 const HeroForm = styled.section`
-    padding: 50px 0 0;
+    /* padding: 50px 0 0; */
     display:flex;
+    flex-direction: column;
 
+    button {
+        margin: 0;
+    }
 
     input {
         overflow: hidden;
@@ -185,10 +185,8 @@ const HeroForm = styled.section`
         border-radius: 5px;
         outline: 2px ${v.GREY_100} solid;
         border: none;
-        margin: 0 4px;
         color: white;
-
-
+        margin-bottom: 10px;
 
         &::placeholder {
             color: ${v.GREY_100}
@@ -196,7 +194,18 @@ const HeroForm = styled.section`
 
         &:focus {
             color: white;
-            
+        }
+    }
+
+    @media (min-width: 400px) {
+        flex-direction: row;
+        
+        input {
+            margin: 0 0 0 0;
+        }
+
+        button {
+            margin-left: 8px;
         }
     }
 `;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components'
 import * as v from '../../assets/js/variables'
 
@@ -14,27 +14,26 @@ import iconSearch from '../../assets/img/nav-bar/nav-search.svg'
 
 const NavBar = () => {
 
-    const isModalOpen = useSelector((state) => state.state.isMobileMenuOpen)
+    const isModalOpen = useSelector((state) => state.state.isModalOpen)
     const dispatch = useDispatch()
 
-    let icon = iconHamb
+    const open = useRef()
+    const close = useRef()
 
-    if(isModalOpen){
-        icon = iconClose
-    } 
+
 
     useEffect(() => {
 
-       icon = iconHamb
-
-        if(isModalOpen){
-            icon = iconClose
+        if(isModalOpen === true ){
+            open.current.style.display = 'none'
+            close.current.style.display = 'block'
         } 
 
-        
-        return () => {
-            
-        };
+        if(isModalOpen === false){
+            close.current.style.display = 'none'
+            open.current.style.display = 'block'
+        }
+
     }, [isModalOpen]);
 
     
@@ -42,9 +41,10 @@ const NavBar = () => {
 
     return (
         <NavBarContainer>
-            <img onClick={() => dispatch(setMobileMenuOpen())} src={icon} ></img>
+            <img ref={open} className='shrink' onClick={() => dispatch(setMobileMenuOpen())} src={iconHamb} ></img>
+            <img ref={close} className='shrink close' onClick={() => dispatch(setMobileMenuOpen())} src={iconClose} ></img>
             <img src={logo} ></img>
-            <img onClick={() => dispatch(setMobileMenuOpen())} src={iconSearch} ></img>
+            <img className='shrink' onClick={() => dispatch(setMobileMenuOpen())} src={iconSearch} ></img>
         </NavBarContainer>
     );
 }
@@ -60,8 +60,26 @@ const NavBarContainer = styled.nav`
     width: 100vw;
     z-index: 103;
 
+   
+
     img {
         cursor:pointer;
+        max-width: 50%;
+    }
+
+    .shrink {
+        min-width: 29px;
+        transition: all 500ms ease;
+
+        &:hover {
+            transform: scale(1.0125);
+        }
+    }
+    
+    .close {
+        padding: 9px 0 11.3px 0;
+        margin-left: 10px;
+        margin-right: 6px
     }
 `
 

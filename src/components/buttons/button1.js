@@ -1,11 +1,10 @@
+/************* BUTTON 1 component - opens alert modal *********/
 import React from 'react';
 import * as v from '../../assets/js/variables'
 import styled from 'styled-components';
 
 import { useDispatch } from 'react-redux'
 import { setAlertOpen } from '../../toolkit/reducer';
-
-
 
 
 const Button1 = ({ text }) => {
@@ -44,7 +43,6 @@ const Button = styled.button`
     
     span {
         display: none;
-      
     }
 
     &:hover span {
@@ -52,11 +50,8 @@ const Button = styled.button`
     }
 
     &:hover {
-        box-shadow: -3px 3px ${v.PINK};
+        box-shadow: -5px 7px ${v.PINK};
         transform: scale(1.0125);
-        /* color: white; */
-        /* border: ${v.PINK} ;
-        outline: ${v.GREY_400}; */
     }
 `;
 

@@ -1,13 +1,15 @@
+/********** GLOBAL STATE - redux toolkit ***********/
+
 import { createSlice } from "@reduxjs/toolkit"
 
-// creo el estado inicial y las props
+// I create the initial state, keys and props
 const initialState = {
     isModalOpen: false,
     isAlertOpen: false
 }
 
 
-export const globalState = createSlice({
+export const globalState = createSlice({        // I create slice and actions, configurations
 
     name: "state",
     initialState,
@@ -24,7 +26,6 @@ export const globalState = createSlice({
     }
 })
 
-// console.log('STATE', globalState.isModalOpen)
 
 export const { setMobileMenuOpen, setAlertOpen } = globalState.actions
 export default globalState.reducer

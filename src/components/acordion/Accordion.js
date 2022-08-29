@@ -1,3 +1,4 @@
+
 import React from 'react';
 import styled from 'styled-components'
 import AccordionComponent from './AccordionComponent';
@@ -15,8 +16,13 @@ const Acordion = () => {
 }
 
 const AccordionContainer = styled.section`
-    margin-bottom: 100px;
-    padding: 75px 50px;
+    padding: 75px 0px;
+    width: 95%;
+    margin: 0 auto 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     
     .accordion-accordion {
         margin-bottom: 50px;
@@ -34,11 +40,22 @@ const AccordionContainer = styled.section`
         }
     }
 
+    /* @media (min-width: 400px) {
+        padding: 75px 50px;
+
+    } */
+
+
     @media (min-width: 750px) {
 
-        display: flex;
+        flex-direction: row;
         justify-content: space-around;
-        padding: 10% 5% 0;
+        align-items: center;
+        padding: 10% 0;
+
+        .accordion-img {
+            margin-bottom: 0px;
+        }
 
     }
 `;

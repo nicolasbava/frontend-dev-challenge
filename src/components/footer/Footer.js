@@ -4,19 +4,22 @@ import * as v from '../../assets/js/variables'
 
 import logo from '../../assets/img/footer-logo-indigo.svg'
 import separator from '../../assets/img/footer-separator-indigo.png'
+import separatorDesktop from '../../assets/img/footer--lines--desktop.png'
 
 const Footer = () => {
     return (
         <FooterContainer>
-            <div className='footer__col'>
+            <div className='footer__col--up'>
                 <img className='footer__logo' src={logo} ></img>
                 <p className='footer__text'>La Mente es Maravillosa is a property of Grupo MContigo© 2012 – 2020. All rights reserved.
                 Los contenidos de esta publicación se redactan solo con fines informativos. En ningún momento pueden servir para facilitar diagnósticos o sustituir la labor de un profesional. Le recomendamos que contacte con su especialista de confianza.</p>
 
             </div>
-            <div className='footer__col'>
-                <img className='footer__line' src={separator} ></img>
 
+            <img className='footer__line--mobile' src={separator} ></img>
+            <img className='footer__line--desktop' src={separatorDesktop} ></img>
+
+            <div className='footer__col'>
                 <ul className='footer__list'>
                     <li>Política de Cookies</li>
                     <li>Política de Privacidad</li>
@@ -30,15 +33,16 @@ const Footer = () => {
 
 const FooterContainer = styled.footer`
     background: ${v.GREY_100};
-    padding: 75px 50px;
+    padding: 20% 10%;
     color: ${v.INDIGO};
 
     .footer {
+
         &__logo {
-            /* padding: 0 0 50px; */
             transition: all 400ms ease;
             cursor: pointer;
             fill: ${v.INDIGO};
+            margin-bottom: 30px;
         }
 
         &__logo:hover {
@@ -47,15 +51,15 @@ const FooterContainer = styled.footer`
         }
 
         &__text {
-            padding: 0 0 60px;
+            padding: 0 0 30px;
             line-height: 1.2;
 
         }
 
         &__list {
-            margin-top: 75px;
             padding: 0;
             margin: 0;
+            margin-top: 40px;
 
           
             li {
@@ -68,18 +72,56 @@ const FooterContainer = styled.footer`
                 cursor: pointer;
             }
         }
+
+        &__line--mobile {
+            width: 90%;
+
+        }
+
+        &__line--desktop {
+            display: none;
+        }
     }
 
     @media (min-width: 750px) {
         display: flex;
         justify-content: space-around;
         margin: 0;
+        flex-direction: column;
+        padding: 30px 10%;
+
 
         .footer {
 
+            img {
+                width: 80%;
+            }
+
             &__col {
-                width: 40%;
-                margin: auto;
+                width: 80%;
+                display: flex;
+                margin: 30px auto;
+
+                ul {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin: 0 auto;
+                    
+                    li {
+                        padding: 10px 13px;
+                    } 
+                }
+
+
+                &--up {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 60%;
+                    margin: 30px auto;
+
+                }
             }
 
             &__logo {
@@ -90,16 +132,26 @@ const FooterContainer = styled.footer`
                 margin: 0;
                 padding-bottom: 0;
                 font-size: 13px;
+                text-align: left;
+                margin-left: 50px;
+                line-height: 1.5;
             }
-
-            &__line {
-                display:none;
-            }
-
+            
             &__list {
                 font-size: 14px;
             }
+            
+            &__line--mobile {
+                display:none;
+            }
+
+            &__line--desktop {
+                display: block;
+                width: 68%;
+                margin: 0 auto;
+            }
         }
+
     }
 `;
 

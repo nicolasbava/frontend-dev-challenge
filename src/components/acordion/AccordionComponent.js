@@ -62,9 +62,7 @@ const AccordionComponentContainer = styled.section`
     padding: 0 35px ;
 
     .title {
-        // background: #fff9;
         border-bottom: 3px white dashed;
-        /* padding: 0 16px; */
         cursor: pointer;
         transition: all 1s;
         

@@ -67,8 +67,14 @@ const StyledAlert = styled.section`
             &--icon {
                 cursor:pointer;
                 position:absolute;
-                right: 11px;
-                top: 8px;
+                right: 15px;
+                top: 12px;
+                transform: all 300ms ease;
+
+                &:hover {
+                    transform: scale(1.02)
+                }
+
             }
 
             &--body {
@@ -88,7 +94,14 @@ const StyledAlert = styled.section`
 
                 p {
                     margin-top: 50px;
+                    transition: all 200ms ease;
+
+                    &:hover {
+                        font-weight: 600;
+                    }
                 }
+
+
             }
         }
     }

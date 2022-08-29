@@ -1,14 +1,12 @@
+/******** CONTACT SECTION - with form *********/
 import React from 'react';
 import styled from 'styled-components';
-import * as v from '../../assets/js/variables'
 import Button1 from '../buttons/button1';
 
 
 import Input, { Textarea } from '../input/input';
 
-const sendAlert = () => {
-    alert('Mensaje enviado.')
-}
+
 
 const Contact = () => {
     return (
@@ -37,7 +35,7 @@ const Contact = () => {
                     <span>Acepto recibir Newsletter por correo</span>
                 </div>
 
-                <Button1 onClick={( ) => sendAlert()} text='Enviar mensaje'></Button1>
+                <Button1 text='Enviar mensaje'></Button1>
             </article>
         </ContactContainer>
     );

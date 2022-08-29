@@ -1,18 +1,13 @@
+/******* WHATSAPP BUTTON - appears when you scroll down *************/
+
 
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 
 import logo from '../../../assets/img/modal--wsp--green.png'
 
-
-import styled from "styled-components";
-
-
-
-
-
 const ModalWsp = () => {
-    const [isVisible, setIsVisible] = useState(true);
-
+    const [isVisible, setIsVisible] = useState(false);
  
     useEffect(() => {
         

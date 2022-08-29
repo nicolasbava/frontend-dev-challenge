@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import arrow from '../../../assets/img/nav-bar/arrow-vector.png'
 import * as v from '../../../assets/js/variables'
@@ -7,24 +7,27 @@ import Button1 from '../../buttons/button1';
 import { useSelector } from 'react-redux/es/exports';
 
 const ModalMenuMobile = () => {
-    
-    // const isModalOpen = useSelector( state => state.state.isModalOpen)
+  
+    const isModalOpen = useSelector( state => state.state.isModalOpen)
 
+    const menu = useRef()
 
-    // const leftValue = () => {
+    useEffect(() => {
+        
+        if(isModalOpen){
+            menu.current.style.opacity = '1'
+            menu.current.style.transform = 'translateX(00%)'
+        } if(!isModalOpen) {
+            menu.current.style.opacity = '0'
+            menu.current.style.transform = 'translateX(-100%)'
+        }
 
-    //     if(isModalOpen) {
-    //         return '50px'
-    //     } else {
-    //         return '0px'
-    //     }style={{left: `${leftValue()}`}}
+    }, [isModalOpen]);
 
-    // }
-    
-    
+  
 
     return (
-        <MenuMobileContainer >
+        <MenuMobileContainer ref={menu} >
             <Modal>
                 <div className='menu__search'>
                     <input className='menu__search--input' type='text' placeholder='Buscar...'></input>
@@ -58,7 +61,7 @@ const ModalMenuMobile = () => {
                     </li>
                     {/* TITLE 2 */}
                     <li>
-                        <h2 className='menu__item--title'>Embarazo</h2>
+                        <h2 className='menu__item--title'>Crecimiento</h2>
                         <ul>
                             <li>
                                 <div className='menu__item--cont'>
@@ -88,14 +91,16 @@ const ModalMenuMobile = () => {
 
 
 const Modal = styled.article`
+
     background: white;
     color: grey;
-    margin-top: 6px;
+    margin-top: 5px;
     text-align: left;
-    padding: 50px;
-    max-width: 300px;
+    padding: 20px;
+    max-width: 250px;
+
     border-radius: 0 15px 15px 0;
-    transition: all 500ms ease;
+    transition: opacity 100ms ease;
 
     .menu {
 
@@ -109,6 +114,14 @@ const Modal = styled.article`
             display:flex;
             justify-content: space-between;
             align-items: center;
+            transition: all 500ms ease;
+
+            &:hover {
+                /* text-shadow: -0.2px 0.2px ${v.PINK}; */
+                /* font-weight: bold; */
+                /* color: #000; */
+                transform: scale(1.0125);
+            }
 
             
             p {
@@ -142,18 +155,28 @@ const Modal = styled.article`
         list-style: none;
         text-align: left;
         margin: 10px 0;
+        cursor: pointer;
+    }
+
+    @media (min-width: 400px){
+        
+            padding: 50px;
+            min-width: 300px;
+        
     }
 `;
 
 
 const MenuMobileContainer = styled.section`
+    opacity: 0;
     z-index: 100;
     position:fixed;
-    top: 57px;
+    top: 55px;
     left: 0;
     background: rgba(0,0,0,0.7);
     right: 0;
     bottom: 0;
+    transition: transform 800ms ease;
     transition: all 500ms ease;
 
 `;
